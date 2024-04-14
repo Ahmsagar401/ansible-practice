@@ -1,0 +1,14 @@
+- name: installing java and prometheus
+  hosts: all
+  become: true
+  tasks:
+    - name: java installation
+      # when: ansible_distribution == "ubuntu"
+      apt:
+        name: java
+        state: absent
+        update_cache: yes 
+    - name: prometheus
+      apt:
+        name: prometheus
+        state: absent
